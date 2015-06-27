@@ -1,0 +1,13 @@
+{% extends "VfSNPBundle:Association:association.html.twig" %}
+
+{% block title %}{{ parent() }} - Vérificateurs{% endblock %}
+
+{% block body %}
+
+   <p>Vérificateurs</p>
+   <ul>
+       {% for  key, value  in liste %}
+            <li>{{ value }}</li>
+       {% endfor %}
+    </ul>
+{% endblock %}

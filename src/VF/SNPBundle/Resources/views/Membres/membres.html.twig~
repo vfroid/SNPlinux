@@ -1,0 +1,28 @@
+{% extends "VfSNPBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Membres{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block membres %}
+   <section>
+    <br/>
+       {% if is_granted('ROLE_ORDINAIRE') %}<a href="{{ path('vf_snp_listeMembres') }}">Liste des membres</a>{% endif %}
+    <br/>
+   <p>Garde de praticien</p>
+   <ul>
+	   {% if is_granted('ROLE_ORDINAIRE') %}<li><a href="{{ path('vf_snp_gardes') }}">Plan de garde</a></li>{% endif %}
+	   {% if is_granted('ROLE_ORDINAIRE') %}<li><a href="{{ path('vf_snp_gardesPerso') }}">Gardes personnelles</a></li>{% endif %}
+    </ul>
+	
+    <br/>
+    <p>Gestion de mes données</p>
+	<ul>
+	    {% if is_granted('ROLE_MEMBRE') %}<li><a href="{{ path('vf_snp_monprofil') }}">Mon profil de membre SNP</a></li>{% endif %}
+	    {% if is_granted('ROLE_MEMBRE') %}<li><a href="{{ path('fos_user_profile_show') }}">Données d'utilisateur du site</a></li>{% endif %}
+        {% if is_granted('ROLE_MEMBRE') %}<li><a href="{{ path('fos_user_change_password') }}">Changer le mot de passe</a></li>{% endif %}
+		{% if is_granted('ROLE_ADMIN') %}<li><a href="{{ path('fos_user_registration_register') }}">Enregistrer un nouvel utilisateur</a></li>{% endif %}
+    </ul>
+	</section>
+{% endblock %}
+{% block fos_user_content %}
+{% endblock fos_user_content %}

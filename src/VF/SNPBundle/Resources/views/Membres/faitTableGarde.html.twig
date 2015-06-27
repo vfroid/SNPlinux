@@ -1,0 +1,28 @@
+{% extends "VFSNPBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Gardes{% endblock %}
+
+{% block body %}
+	<section>
+	
+    <table>
+	<caption>Gardes de la SNP</caption>
+    <tr>
+    <th>Date</th>
+    <th>Jour</th>
+    <th>Chaux-de-Fonds</th>
+	<th>Neuchâtel</th>
+    </tr>
+    
+
+	{% for l in listeGardiens %}
+	    <tr>
+        <td>{{ l[2] }}</td>
+        <td>{{ l[3] }}</td>
+        <td>{{ l[4] }}</td>
+        <td>{{ l[5] }}</td>
+        </tr>
+    {% endfor %}
+	</table>
+	</section>
+{% endblock %}

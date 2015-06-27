@@ -1,0 +1,30 @@
+{% extends "VFSNPBundle:Membres:membres.html.twig" %}
+
+{% block title %}{{ parent() }} - Membres{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block body %}
+   <section>
+   <table class="table table-bordered table-striped table-condensed">
+        <th>Nom</th>
+		<th>Prénom</th>
+		<th>Courriel</th>
+		<th>Tél. public</th>
+		<th>Fax</th>
+		<th>Rue</th>
+		<th>Localité</th>
+   {% for m in listeMembres %}
+        <tr>
+		
+        <td>{{ m.nom }}</td>
+        <td>{{ m.prenom }}</td>
+        <td>{{ m.courriel }}</td>
+		<td>{{ m.telpublic }}</td>
+		<td>{{ m.fax }}</td>
+        <td>{{ m.rue }}</td>
+		<td>{{ m.cp }}  {{ m.localite }}</td>
+        </tr>
+   {% endfor %}
+   </table>
+   </section>
+{% endblock %}

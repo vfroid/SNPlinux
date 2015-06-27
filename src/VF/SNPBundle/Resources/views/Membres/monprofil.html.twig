@@ -1,0 +1,13 @@
+{% extends "VFSNPBundle:Membres:membres.html.twig" %}
+
+{% block title %}{{ parent() }} - Membres{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block membres %}
+   <aside>
+   <p>Mon profil et mes données</p>
+   <ul>
+       {% if is_granted('ROLE_MEMBRE') %}<li><a href="{{ path('vf_snp_monprofil') }}">Données du fichier membres-SNP</a></li>{% endif %}
+    </ul>
+	</aside>
+{% endblock %}

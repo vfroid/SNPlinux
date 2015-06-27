@@ -1,0 +1,47 @@
+vf_snp_comite:
+    path:    /comite
+    defaults: { _controller: VFSNPBundle:Association:comite }
+
+vf_snp_delegues:
+    path:    /delegues
+    defaults: { _controller: VFSNPBundle:Association:delegues }
+
+vf_snp_verificateurs:
+    path:    /verificateurs
+    defaults: { _controller: VFSNPBundle:Association:verificateurs }
+
+vf_snp_association:
+    path:    /association
+    defaults: { _controller: VFSNPBundle:Association:association }
+
+vf_snp_membres:
+    path:    /membres
+    defaults: { _controller: VFSNPBundle:Membres:membres }
+
+vf_snp_gardes:
+    path:    /gardes
+    defaults: { _controller: VFSNPBundle:Membres:gardes }
+
+vf_snp_listeMembres:
+    path:    /listeMembres
+    defaults: { _controller: VFSNPBundle:Membres:listeMembres }
+
+vf_snp_gardesPerso:
+    path:    /gardesPerso
+    defaults: { _controller: VFSNPBundle:Membres:gardesPerso }
+
+vf_snp_monprofil:
+    path:    /monprofil
+    defaults: { _controller: VFSNPBundle:Membres:monprofil } 
+
+vf_snp_majUserIdMembre:
+    path:    /majUserIdMembre
+    defaults: { _controller: VFSNPBundle:Admin:majUserIdMembre }
+
+vf_snp_admin:
+    path:    /admin
+    defaults: { _controller: VFSNPBundle:Admin:admin }   
+
+vf_snp_faitTableGarde:
+    path:    /faitTableGarde
+    defaults: { _controller: VFSNPBundle:Admin:faitTableGarde }

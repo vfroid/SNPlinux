@@ -1,0 +1,136 @@
+{# src/VF/SNPBundle/Resources/views/Default/form.html.twig #}
+
+{% extends "VFSNPBundle:Membres:membres.html.twig" %}
+{% block form %}
+
+<h3>Données de membre de la SNP</h3>
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.nom) }}
+
+      <div class="col-sm-4">
+        {# Génération de l'input. #}
+        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    {# Idem pour un autre champ. #}
+    <div class="form-group">
+      {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.prenom) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+  {# Génération du label + error + widget pour un champ #}
+    <div class="form-group">
+      {{ form_label(form.courriel, "Courriel", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.courriel) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.courriel, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.rue, "Rue", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.rue) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.rue, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+  
+    <div class="form-group">
+      {{ form_label(form.cp, "Code postal", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.cp) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.cp, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+	<div class="form-group">
+      {{ form_label(form.localite, "Localité", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.localite) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.localite, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.telpublic, "Tél. public", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.telpublic) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.telpublic, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.fax, "Fax", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.fax) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.fax, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.telsecret, "Tél. secret", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.telsecret) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.telsecret, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.portable, "Tél. portable", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.portable) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.portable, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.qualite, "Qualité (Choisir: ordinaire, extraordinaire ou honoraire)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.qualite) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.qualite, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.garde, "Garde (cocher si participation à la garde de pédiatre praticien)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.garde) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.garde, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.rSNe, "RSNe (cocher si membre du Réseau de Soins Neuchâtelois)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.rSNe) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.rSNe, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.sauver, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type "hidden"). #}
+  {{ form_rest(form) }}
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+{% endblock %}

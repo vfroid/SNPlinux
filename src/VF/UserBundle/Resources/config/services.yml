@@ -1,0 +1,4 @@
+services:
+#    vf_user.example:
+#        class: VF\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

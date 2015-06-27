@@ -1,0 +1,27 @@
+{# On utilise ici le layout général, qui se situe dans ce même CoreBundle maintenant #}
+{% extends "OCCoreBundle::layoutCore.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+
+{% block nav %}{% endblock %}
+  
+  
+{% block body %}
+
+  <h2>Présentation</h2>
+
+  {# On affiche tous les messages flash dont le nom est « info » #}
+  {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info">Message flash : {{ message }}</div>
+  {% endfor %}
+  <p>La Société Neuchâteloise de Pédiatrie regroupe les pédiatres du canton de Neuchâtel.</p> 
+  <p>Ses buts visent la promotion de la santé des enfants et adolescents, ainsi que la formation continue et la défense des intérêts professionnels de ses membres</p>
+  <p>Le 4 juin 2015, elle s'est associée à <a href="http://www.medecinsdefamillene.ch/site/" target="_blank">Médecins de famille Neuchâtel</a> pour participer à l'association <a href="" target="_blank">Médecins de Famille et de l'Enfance Neuchâtel</a>.
+  <p>Elle a été fondée le 8 mars 1989 et a été reconnue comme société cantonale/régionale par la <a href="http://www.swiss-paediatrics.org" target="_blank">Société Suisse de Pédiatrie</a>, le 9 juin 1989.</p>
+  <p>Elle constitue un groupe, organisé en corporation, régi par les articles 60 et suivants du Code Civil Suisse.</p>
+  <br/>
+  <p> Son site internet est en construction </p>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "VfSNPBundle:Admin:admin.html.twig" %}
+
+{% block title %}{{ parent() }} - Membres{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block body %}
+   <section>
+   <table>
+   {% for el in liste %}
+        <tr>
+        <td>{{ el.membre.id }}</td>
+        <td>{{ el.membre.nom }}</td> 
+        <td>{{ el.user.username }}</td>
+	    <td>{{ el.user.membre}}</td>
+        </tr>
+   {% endfor %}
+   </table>
+   </section>
+{% endblock %}

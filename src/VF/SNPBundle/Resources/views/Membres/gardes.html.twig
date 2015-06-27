@@ -1,0 +1,28 @@
+{% extends "VFSNPBundle:Membres:membres.html.twig" %}
+
+{% block title %}{{ parent() }} - Gardes{% endblock %}
+
+{% block body %}
+	<section>
+	
+    <table class="table table-bordered table-striped table-condensed">
+	<caption>Gardes de la SNP</caption>
+    <tr>
+    <th>Date</th>
+    <th>Jour</th>
+    <th>Chaux-de-Fonds</th>
+	<th>Neuchâtel</th>
+    </tr>
+    
+
+	{% for g in listeGardes %}
+	    <tr>
+        <td>{{ g.date | date("d.m.Y")  }}</td>
+        <td>{{ g.jour }}</td>
+        <td>{{ g.haut }}</td>
+		<td>{{ g.bas }}</td>
+        </tr>
+    {% endfor %}
+	</table>
+	</section>
+{% endblock %}

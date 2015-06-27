@@ -1,0 +1,17 @@
+{% extends "VFSNPBundle::layout.html.twig" %}
+
+
+{% block title %}{{ parent() }} - Association{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block association %}
+    <section>
+	<p>L'association</p>
+        <ul>
+            <li><a href="{{ path('vf_snp_comite') }}">Comité</a></li>
+		    <li><a href="{{ path('vf_snp_delegues') }}">Délégués</a></li>
+		    <li><a href="{{ path('vf_snp_verificateurs') }}">Vérificateurs</a></li>
+		    <li><a href="http://localhost/SNP/web/docu/PV_Statuts/STATUTS_SNPpourMFENeuchatel_acceptés en2015.pdf">Statuts</a></li>
+        </ul>
+	</section>
+{% endblock %}

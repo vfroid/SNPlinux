@@ -1,0 +1,7 @@
+oc_core_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: OCCoreBundle:Default:index }
+
+oc_core_home:
+    path:      /
+    defaults:  { _controller: OCCoreBundle:Core:index }

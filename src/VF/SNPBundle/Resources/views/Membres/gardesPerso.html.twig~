@@ -1,0 +1,31 @@
+{% extends "VfSNPBundle:Membres:membres.html.twig" %}
+
+{% block title %}{{ parent() }} - Membres{% endblock %}
+
+{% block accueil %}{% endblock %}
+
+{% block body %}
+   <section>
+    <table class="table table-bordered table-striped table-condensed">
+	<caption>Gardes de {{ membre.prenom ~ ' ' ~ membre.nom }}</caption>
+    <tr>
+    <th>Date</th>
+    <th>Jour</th>
+    <th>Site HNE</th>
+	</tr>
+	{% for g in listeGardes %}
+	  {% if (g.haut ==  membre.nomPlanGarde) %} 
+        <tr><td> {{ g.date | date("d.m.Y")}} </td>  <td> {{ g.jour }} </td>  <td> La Chaux-de-Fonds </td></tr>
+      {% endif %}
+	  {% if g.bas == membre.nomPlanGarde %}
+        <tr><td> {{ g.date | date("d.m.Y")}} </td>  <td> {{ g.jour }} </td>  <td> Neuchâtel </td></tr>
+      {% endif %}
+   {% endfor %}
+	
+	
+	</table>
+  
+   
+   
+   </section>
+{% endblock %}

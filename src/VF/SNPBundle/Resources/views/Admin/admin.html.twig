@@ -1,0 +1,15 @@
+{% extends "VFSNPBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Administration{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block admin %}
+   <aside>
+   <p>Administration</p>
+   <ul>
+	   {% if is_granted('ROLE_ADMIN') %}<li><a href="{{ path('vf_snp_majUserIdMembre') }}">Mettre à jour la table 'user' avec les id de la table 'membre'</a></li>{% endif %}
+       {% if is_granted('ROLE_ADMIN') %}<li><a href="{{ path('vf_snp_faitTableGarde') }}">Remplir la table 'garde' de la BDD avec /SNP/web/docu/GardesTransmis1516.csv</a></li>{% endif %}
+
+	</ul>
+	</aside>
+{% endblock %}

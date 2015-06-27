@@ -1,0 +1,14 @@
+{% extends "VfSNPBundle:Association:association.html.twig" %}
+
+{% block title %}{{ parent() }} - Comite{% endblock %}
+
+{% block body %}
+	<section>
+   <p>COMITE</p>
+   <ul>
+       {% for  key, value  in liste %}
+            <li>{{ key }} : {{ value }}</li>
+       {% endfor %}
+    </ul>
+	</section>
+{% endblock %}

@@ -1,0 +1,100 @@
+{# src/OC/CoreBundle/Resources/views/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+  <title>{% block title %}SNP{% endblock %}</title>
+
+  {% block stylesheets %}
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    {# {# On charge le CSS de bootstrap depuis le site directement #}
+	   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+	#}
+  {% endblock %}
+  
+  <div class="container">
+    <div id="header" class="jumbotron">
+	<div class="row">
+      <h1>Société Neuchâteloise de Pédiatrie</h1>
+	  <br/>
+	{% block snp %}
+	<div class="row">
+	  <div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}<a class="btn btn-info" href="{{ path('oc_core_home') }}">Accueil</a> {% endif %}
+            {% if is_granted('ROLE_MEMBRE') %} <a class="btn btn-info" href="{{ path('vf_snp_association') }}">Association</a> {% endif %}
+            {% if is_granted('ROLE_ORDINAIRE') %} <a class="btn btn-success" href="{{ path('vf_snp_membres') }}">Espace membres</a> {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-danger" href="{{ path('vf_snp_admin') }}">Administration</a> {% endif %}
+		  </div>
+		
+      </nav>
+	  </div>
+	
+    {% endblock %}
+	 <div class="col-sm-3 col-sm-offset-1">
+	 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+      {% else %}
+        <a href="{{ path('fos_user_security_login') }}">Connexion à l'espace-membres</a>
+      {% endif %}
+	 </div>
+	 </div>
+	 </div>
+  </div>
+
+</head>
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<div class="row">
+<div class="col-sm-2">
+    <aside>
+		{% block nav %} {% endblock %}
+		{% block association %}{% endblock %}
+		{% block membres %} {% endblock %}
+		{% block admin %} {% endblock %}
+	</aside>
+</div>
+{% endif %}
+
+<div class="col-sm-9 col-sm-offset-1">	
+<body>  
+    {% block body %}
+	 {% block form %} {% endblock %}
+     {% block fos_user_content %}{% endblock fos_user_content %}
+    {% endblock %}
+</body>
+</div>
+</div>
+
+ <div class="row">
+  <div class="col-sm-9 col-sm-offset-2">
+    <footer>
+      {# <p>SNP, le {{ 'now'|date('d m Y') }} </p> #}
+    </footer>
+	</div>
+  </div>
+ </div> 
+
+ {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+</div>
+
+
+
+</html>
